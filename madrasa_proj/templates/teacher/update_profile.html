@@ -1,0 +1,61 @@
+{% extends 'teacher/base.html' %}
+{% load static %}
+{% block content %}
+
+
+               <div class="login_section mt-5">
+                  <div class="logo_login">
+                     <div class="center">
+                        <h3 style="color: aliceblue;">Update Profile</h3>
+                     </div>
+                  </div>
+                  <div class="login_form">
+                    <form method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <fieldset>
+                        <div class="field">
+                              <label class="label_field">UserName</label>
+                              <input type="text" name="username" placeholder="Name" value="{{update.username}}"/>
+                           </div>
+                           
+                           <div class="field">
+                              <label class="label_field">Name</label>
+                              <input type="text" name="name" placeholder="Name" value="{{update.name}}"/>
+                           </div>
+                           <div class="field">
+                                <label class="label_field">E-mail</label>
+                                <input type="email" name="email" placeholder="E-mail" value="{{update.email}}" />
+                            </div>
+                            <div class="field">
+                                <label class="label_field">Mobile No</label>
+                                <input type="number" name="mobile" placeholder="Mobile" value="{{update.mobile}}" />
+                             </div>
+                             <div class="field">
+                                <label class="label_field">Place</label>
+                                <input type="text" name="place" placeholder="Mobile" value="{{update.place}}" />
+                             </div>
+                             <div class="field">
+                                <label class="label_field">Address</label>
+                                <input type="text" name="address" placeholder="Mobile" value="{{update.address}}" />
+                             </div>
+                             <div class="field">
+                                <label class="label_field">Qualification</label>
+                                <input type="text" name="Qualification" placeholder="Mobile" value="{{update.Qualification}}" />
+                             </div>
+                             <img src="{{update.imageURL}}" alt="" width="80px" height="80px" style="margin-left: 150px;">
+                             <div class="field">
+                                <label class="label_field">Image</label>
+                                <input type="file" name="img" placeholder="Image" />
+                             </div>  
+                           <div class="field margin_0">
+                              <label class="label_field hidden">hidden label</label>
+                              <button class="main_bt" type="submit">Update</button>
+                           </div>
+                        </fieldset>
+                     </form>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+{% endblock %}

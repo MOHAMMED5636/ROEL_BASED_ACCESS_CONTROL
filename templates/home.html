@@ -1,0 +1,93 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Page</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <style>
+    body {
+      background-color: #f8f9fa;
+    }
+    .login-container {
+      margin-top: 100px;
+    }
+    .module-section {
+      margin-top: 20px;
+      padding: 20px;
+    }
+    .btn{
+        padding: 10px;
+    }
+    h3{
+        font-weight: 900;
+        color: rgb(145, 19, 19);
+    }
+    body{
+        background-image: url("{% static 'education.jpg' %}");
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    .card-body{
+        background-image: url("{% static 'education.jpg' %}");
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    .card-header {
+        background-image: url("{% static 'education.jpg' %}");
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container login-container">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-header text-center">
+          <h3>AL-MADARASTHUL KHADIRIYYA</h3>
+        </div>
+        <div class="card-body">
+          <!-- Admin Login -->
+          <div class="module-section">
+            <a href="{% url 'admin_login' %}" class="btn btn-primary btn-block">Admin Login</a>
+            
+          </div>
+          <!-- Student Login -->
+          <div class="module-section">
+            <a href="{% url 'student_login' %}" class="btn btn-success btn-block">Student Login</a>
+         
+          </div>
+          <!-- Teacher Login -->
+          <div class="module-section">
+            <a href="{% url 'teacher_login' %}" class="btn btn-info btn-block">Teacher Login</a>
+           
+          </div>
+          <!-- Parent Login -->
+          <div class="module-section">
+            <a href="{% url 'parent_login' %}" class="btn btn-warning btn-block">Parent Login</a>
+            
+          </div>
+          <!-- Parent Login -->
+          <div class="module-section">
+            <a href="{% url 'charity' %}" class="btn btn-danger btn-block">Charity Donation</a>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Bootstrap JS and dependencies -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>

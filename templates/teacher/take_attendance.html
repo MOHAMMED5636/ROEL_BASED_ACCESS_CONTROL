@@ -1,0 +1,53 @@
+{% extends 'teacher/base.html' %}
+{% load static %}
+               {% block content %}
+
+               <!-- Start Attendance Form -->
+               <div class="container mt-5">
+                  <h2>Take Attendance</h2>
+                  <form method="post" action="{% url 'take_attendance' %}">
+                     {% csrf_token %}
+                     <div class="form-group" style="margin-top: 20px;">
+                         <label for="date">Date:</label>
+                         <input type="date" class="form-control" id="date" name="date" required>
+                     </div>
+
+                     <div class="table-responsive" style="margin-top: 20px;">
+                        {% for msg in messages %}
+                           <h6 style="color: red; text-align: center;
+                           padding-top: 11px;padding-bottom: 11px;border-radius: 10px;">{{msg}}</h6>
+                        {% endfor %}
+                         <table class="table table-bordered">
+                             <thead>
+                                 <tr>
+                                    <th style="font-weight: 500;color: black;">Roll Number</th>
+                                    <th style="font-weight: 500;color: black;">Student Name</th>
+                                     
+                                    <th style="font-weight: 500;color: black;">Attendance</th>
+                                 </tr>
+                             </thead>
+                             <tbody>
+                                 <!-- Assuming students is a queryset of students -->
+                                 {% for student in view %}
+                                 <tr>
+                                     <td>{{ student.roll }}</td>
+                                     <td>{{ student.name }}</td>
+                                     
+                                     <td>
+                                         <div class="form-check">
+                                             <input class="form-check-input" type="checkbox" name="students" id="student{{ student.id }}" value="{{ student.id }}">
+                                             <label class="form-check-label" for="student{{ student.id }}">Present</label>
+                                         </div>
+                                     </td>
+                                 </tr>
+                                 {% endfor %}
+                             </tbody>
+                         </table>
+                     </div>
+                     <button type="submit" class="btn btn-primary mt-4">Submit</button>
+                 </form>
+                 
+               </div>
+               <!-- End Attendance Form -->
+
+               {% endblock %}

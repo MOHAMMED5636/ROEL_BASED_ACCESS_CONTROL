@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Madrasa management Project</h1>
+    <h3>admin</h3>
+    <h3><a href="{% url 'admin_register' %}">register</a></h3>
+    <h3><a href="{% url 'admin_login' %}">Login</a></h3>
+    <hr>
+    <h3>Student</h3>
+  
+    <h3><a href="{% url 'student_login' %}">Login</a></h3>
+    <hr>
+    <h3>Teacher</h3>
+    
+    <h3><a href="{% url 'teacher_login' %}">Login</a></h3>
+    <hr>
+    <h3>Parents</h3>
+     
+    <h3><a href="{% url 'parent_login' %}">Login</a></h3>
+
+    <table>
+        <tr>
+            <th>name</th>
+            <th>name</th>
+        </tr>
+        {% for i in view %}
+        <tr>
+            <td>{{i.name}}</td>
+            <td><a href="{% url 'delete_home' i.pk %}">delete</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+    
+</body>
+</html>

@@ -1,0 +1,69 @@
+{% extends 'teacher/base.html' %}
+{% load static %}
+{% block content %}
+<div class="midde_cont">
+                  <div class="container-fluid">
+                     <div class="row column_title">
+                        <div class="col-md-12">
+                           <div class="page_title">
+                              <h2>Manage Notifcation</h2>
+                           </div>
+                        </div>
+                     </div>
+                     <!-- row -->
+                     <div class="row column1">
+                        <div class="col-md-12">
+                           <div class="white_shd full margin_bottom_30">
+                              <div class="full graph_head">
+                                 <div class="heading1 margin_0">
+                                    <h2>View Parents : <span style="color: red;"></span> <small></small></h2>
+                                 </div>
+                              </div>
+                              <div class="full price_table padding_infor_info">
+                                 <div class="row">
+                                    <div class="col-lg-12">
+                                       <div class="table-responsive-sm">
+                                        {% for msg in messages %}
+                                            <h6 style="color: red; text-align: center;
+                                            padding-top: 11px;padding-bottom: 11px;border-radius: 10px;">{{msg}}</h6>
+                                        {% endfor %}
+                                          <table class="table table-striped projects">
+                                             <thead class="thead-dark">
+                                                <tr>
+                                                    
+                                                    <th>Student Name</th>
+                                                    <th> Parent Name</th>
+                                                   <th> Parent Place</th>
+                                                   <th> Parent Phone</th>
+                                                   
+                                                   <th >Parent Photo</th>  
+                                                   <th >Send Notification</th>                               
+                                                </tr>
+                                             </thead>
+                                             <tbody>
+                                             {% for i in parents %}
+                                                <tr>
+                                                    <td>{{i.student.name}}</td>
+                                                    <td>{{i.parent.name}}</td>                    
+                                                   <td>{{i.parent.place}}</td>
+                                                   <td>{{i.parent.mobile}}</td>
+                                                  
+                                                   <td><img src="{{i.parent.imageURL}}" alt="" width="90px" height="90px"></td>
+                                                   <td><a class="btn btn-success" href="{% url 'notification_with_parent' i.parent.pk %}">Send</a></td>
+                                                </tr>
+                                            {% endfor %}                                      
+                                             </tbody>
+                                          </table>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <!-- end row -->
+                     </div>
+                  </div>
+                  <!-- end dashboard inner -->
+               </div>
+
+{% endblock %}

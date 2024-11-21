@@ -1,0 +1,75 @@
+{% extends 'admin/base.html' %}
+{% load static %}
+{% block content %}
+
+    
+               <div class="login_section mt-5">
+                  <div class="logo_login">
+                     <div class="center">
+                        <h3 style="color: aliceblue;">Teacher Registration</h3>
+                     </div>
+                  </div>
+                  <div class="login_form">
+                    <form method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <fieldset>
+                           <div class="field">
+                              <label class="label_field">Username</label>
+                              <input type="text" name="username" placeholder="Username"/>
+                           </div>
+                           <div class="field">
+                              <label class="label_field">Full Name</label>
+                              <input type="text" name="name" placeholder="Full Name" />
+                           </div>
+                           <div class="field">
+                              <label class="label_field">Place</label>
+                              <input type="text" name="place" placeholder="place" />
+                           </div>
+                           <div class="field">
+                              <label class="label_field">Phone</label>
+                              <input type="text" name="phone" placeholder="phone" />
+                           </div>
+                           <div class="field">
+                              <label class="label_field">Address</label>
+                              <input type="text" name="address" placeholder="address" />
+                           </div>
+                           <div class="field">
+                                <label class="label_field">E-mail</label>
+                                <input type="email" name="email" placeholder="E-mail"  />
+                            </div>
+                            <div class="field">
+                              <label class="label_field">Qualification</label>
+                              <input type="text" name="qualification" placeholder="Qualification" />
+                           </div>
+                           <div class="field">
+                                <label class="">Assign Class Room</label>
+                                <select name="Class">
+                                    <option value="John Doe">Select Class</option>
+                                    {% for i in class_room %}
+                                        <option value="{{i.pk}}">{{i.class_no}}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                            
+                             <div class="field">
+                                <label class="label_field">Image</label>
+                                <input type="file" name="img" placeholder="Image" />
+                             </div>  
+                             <div class="field">
+                              <label class="label_field">Password</label>
+                              <input type="password" name="password" placeholder="password"/>
+                           </div>
+                           <div class="field margin_0">
+                              <label class="label_field hidden">hidden label</label>
+                              <button class="main_bt" type="submit">Register</button>
+                           </div>
+                        </fieldset>
+                     </form>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+{% endblock %}

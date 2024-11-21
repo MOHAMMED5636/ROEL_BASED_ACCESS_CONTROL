@@ -1,0 +1,39 @@
+{% extends 'admin/base.html' %}
+{% load static %}
+{% block content %}
+<div class="full_container">
+         <div class="container">
+            
+            <div class="center verticle_center full_height">
+            
+               <div class="">
+                  <div class="logo_login">
+                     <div class="center">
+                        <h3 style="color: aliceblue;">Update Subject</h3>
+                     </div>
+                  </div>
+                  {% for msg in messages %}
+                    <h6 style="color: red; text-align: center;
+                    padding-top: 11px;padding-bottom: 11px;border-radius: 10px;">{{msg}}</h6>
+                    {% endfor %}
+                  <div class="login_form">
+                    <form method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <fieldset>
+                           <div class="field">
+                              <label class="label_field">Subject Name</label>
+                              <input type="text" name="name" placeholder="Name" value="{{update.name}}"/>
+                           </div>
+                            
+                           <div class="field margin_0">
+                              <label class="label_field hidden">hidden label</label>
+                              <button class="main_bt" type="submit">Update</button>
+                           </div>
+                        </fieldset>
+                     </form>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+        {% endblock %}

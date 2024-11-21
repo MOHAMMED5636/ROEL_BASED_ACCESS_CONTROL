@@ -1,0 +1,24 @@
+{% extends 'teacher/base.html' %}
+{% load static %}
+               {% block content %}
+
+               <!-- Start Attendance Form -->
+               <div class="container mt-5">
+                  <h2>View Attendance</h2>
+                  {% for msg in messages %}
+                    <h6 style="color: red; text-align: center;
+                    padding-top: 11px;padding-bottom: 11px;border-radius: 10px;">{{msg}}</h6>
+                    {% endfor %}
+                  <form method="GET" action="{% url 'search_attendance' %}">
+                     {% csrf_token %}
+                     <div class="form-group" style="margin-top: 20px;">
+                         <label for="date">Date:</label>
+                         <input type="date" class="form-control" id="date" name="search" required>
+                     </div>
+                     <button type="submit" class="btn btn-primary mt-4">Submit</button>
+                 </form>
+                 
+               </div>
+               <!-- End Attendance Form -->
+
+               {% endblock %}

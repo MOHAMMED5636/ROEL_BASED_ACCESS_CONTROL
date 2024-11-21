@@ -1,0 +1,71 @@
+{% extends 'teacher/base.html' %}
+{% load static %}
+{% block content %}
+<div class="midde_cont">
+                  <div class="container-fluid">
+                     <div class="row column_title">
+                        <div class="col-md-12">
+                           <div class="page_title">
+                              <h2>Manage Notification</h2>
+                           </div>
+                        </div>
+                     </div>
+                     <!-- row -->
+                     <div class="row column1">
+                        <div class="col-md-12">
+                           <div class="white_shd full margin_bottom_30">
+                              <div class="full graph_head">
+                                 <div class="heading1 margin_0">
+                                    <h2>View Notification <small></small></h2>
+                                 </div>
+                              </div>
+                              <div class="full price_table padding_infor_info">
+                                 <div class="row">
+                                    <div class="col-lg-12">
+                                       <div class="table-responsive-sm">
+                                        {% for msg in messages %}
+                                            <h6 style="color: red; text-align: center;
+                                            padding-top: 11px;padding-bottom: 11px;border-radius: 10px;">{{msg}}</h6>
+                                        {% endfor %}
+                                          <table class="table table-striped projects">
+                                             <thead class="thead-dark">
+                                                <tr>
+                                                    <th>Send Date</th>
+                                                    <th>Subject</th>                          
+                                                   
+                                                   <th >Replay</th>
+                                                   
+                                                   
+                                                </tr>
+                                             </thead>
+                                             <tbody>
+                                             {% for i in view %}
+                                                <tr>
+                                                    <td>{{i.date}}</td>
+                                                    <td>{{i.notification}}</td>
+
+                                                   <td><a class="btn btn-success" href="{% url 'replay_teach_notifications' i.admin.pk %}">Replay</a></td>
+
+                                                </tr>
+                                            {% endfor %}
+                                          
+                                                
+                                               
+                                           
+                                             
+                                              
+                                             </tbody>
+                                          </table>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <!-- end row -->
+                     </div>
+                  </div>
+                  <!-- end dashboard inner -->
+               </div>
+
+{% endblock %}

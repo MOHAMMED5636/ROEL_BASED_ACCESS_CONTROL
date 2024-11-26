@@ -44,7 +44,7 @@ Install the required dependencies:
 bash
 Copy code
 pip install -r requirements.txt
-Set up the database and apply migrations:
+Set up the database and apply migrations`:
 
 bash
 Copy code
